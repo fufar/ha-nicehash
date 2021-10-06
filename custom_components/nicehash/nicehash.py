@@ -45,8 +45,12 @@ class MiningRigDevice:
         self.id = data.get("id")
         self.name = parse_device_name(data.get("name"))
         self.status = data.get("status").get("description")
-        self.temperature = int(data.get("temperature")) % MAX_TWO_BYTES
-        self.load = float(data.get("load"))
+        """qm or not"""
+        if self.quickminer == true:
+            self.temperature = int(data.get("temperature")) % MAX_TWO_BYTES
+        else:
+            self.temperature = int(data.get("temperature"))
+        self.load = float(data.get("load")) % MAX_TWO_BYTES
         self.rpm = float(data.get("revolutionsPerMinute"))
         self.speeds = data.get("speeds")
 

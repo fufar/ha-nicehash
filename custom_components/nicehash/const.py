@@ -5,7 +5,7 @@ Constants for NiceHash
 NAME = "NiceHash"
 DOMAIN = "nicehash"
 DOMAIN_DATA = f"{DOMAIN}_data"
-VERSION = "0.1.0"
+VERSION = "0.1.2"
 
 ISSUE_URL = "https://github.com/brianberg/ha-nicehash/issues"
 

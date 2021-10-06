@@ -65,6 +65,7 @@ See this [repository](https://github.com/nicehash/rest-clients-demo) for further
      rigs: true # (default = false) - Enable rig sensors
      devices: true # (default = false) - Enable device sensors
      payouts: true # (default = false) - Enable payout sensors
+     quickminer: true # (default = false) - Enable right statistics for quickminer
    ```
 1. Restart Home Assistant
 
