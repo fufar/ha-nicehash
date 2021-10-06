@@ -34,7 +34,7 @@ CONF_BALANCES_ENABLED = "balances"
 CONF_RIGS_ENABLED = "rigs"
 CONF_DEVICES_ENABLED = "devices"
 CONF_PAYOUTS_ENABLED = "payouts"
-CONF_QM_ENABLED = false
+CONF_QM_ENABLED = "quickminer"
 # Defaults
 DEFAULT_NAME = NAME
 FORMAT_DATETIME = "%d-%m-%Y %H:%M"
