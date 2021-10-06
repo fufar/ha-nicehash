@@ -16,7 +16,7 @@ import sys
 from time import mktime
 import uuid
 
-from .const import MAX_TWO_BYTES, NICEHASH_API_URL
+from .const import MAX_TWO_BYTES, NICEHASH_API_URL, CONF_QM_ENABLED
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -46,7 +46,7 @@ class MiningRigDevice:
         self.name = parse_device_name(data.get("name"))
         self.status = data.get("status").get("description")
         """qm or not"""
-        if self.quickminer == true:
+        if self.quickminer == CONF_QM_ENABLED:
             self.temperature = int(data.get("temperature")) % MAX_TWO_BYTES
         else:
             self.temperature = int(data.get("temperature"))

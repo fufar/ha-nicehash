@@ -22,6 +22,7 @@ from .const import (
     CONF_RIGS_ENABLED,
     CONF_DEVICES_ENABLED,
     CONF_PAYOUTS_ENABLED,
+    CONF_QM_ENABLED,
     CURRENCY_USD,
     DOMAIN,
     STARTUP_MESSAGE,
@@ -47,6 +48,7 @@ CONFIG_SCHEMA = vol.Schema(
                 vol.Required(CONF_RIGS_ENABLED, default=False): cv.boolean,
                 vol.Required(CONF_DEVICES_ENABLED, default=False): cv.boolean,
                 vol.Required(CONF_PAYOUTS_ENABLED, default=False): cv.boolean,
+                vol.Required(CONF_QM_ENABLED, default=False): cv.boolean,
             }
         )
     },
@@ -71,6 +73,7 @@ async def async_setup(hass: HomeAssistant, config: Config):
     rigs_enabled = nicehash_config.get(CONF_RIGS_ENABLED)
     devices_enabled = nicehash_config.get(CONF_DEVICES_ENABLED)
     payouts_enabled = nicehash_config.get(CONF_PAYOUTS_ENABLED)
+    quickminer = nicehash_config.get(CONF_QM_ENABLED)
 
     client = NiceHashPrivateClient(organization_id, api_key, api_secret)
 
@@ -81,6 +84,7 @@ async def async_setup(hass: HomeAssistant, config: Config):
     hass.data[DOMAIN]["rigs_enabled"] = rigs_enabled
     hass.data[DOMAIN]["devices_enabled"] = devices_enabled
     hass.data[DOMAIN]["payouts_enabled"] = payouts_enabled
+    hass.data[DOMAIN]["quickminer"] = quickminer
 
     # Accounts
     if balances_enabled:
